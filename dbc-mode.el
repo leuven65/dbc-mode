@@ -1,4 +1,45 @@
-;; the mode for CAN dbc file
+;;; dbc-mode.el --- major mode for editing CAN dbc files
+
+;; Copyright 2019 Jian Wang <leuven65@gmail.com>
+
+;; Author: Jian Wang <leuven65@gmail.com>
+;; Maintainer: Jian Wang <leuven65@gmail.com>
+;; Created: <2019-10-09>
+;; Version: 1.0.0
+;; Package-Version: 
+;; Keywords: languages, CAN, dbc
+
+;; available from http://github.com/leuven65/dbc-mode
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program; if not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Put this file into your load-path and the following into your ~/.emacs:
+;;   (require 'dbc-mode)
+;; or
+;;   (use-package dbc-mode)
+
+;; this package needs the package pcre2el
+;; you can install it from elpa
+
+;;; Code:
+
+
+;;;;##########################################################################
+;;;;  User Options, Variables
+;;;;##########################################################################
 
 (require 'pcre2el)
 
@@ -106,3 +147,5 @@
 (add-to-list 'auto-mode-alist '("\\.dbc\\'" . dbc-mode))
 
 (provide 'dbc-mode)
+
+;;; dbc-mode.el ends here
