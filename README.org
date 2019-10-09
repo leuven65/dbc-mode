@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+#+TITLE: EMACS Major Mode for editing CAN dbc file
+#+AUTHOR: Jian Wang
+#+DATE: 2019-10-07
+
+* About
+*dbc-mode* is EMACS major mode for highlighting CAN dbc file.
+
+* Installation
+Put the file to EMACS load path, and add following code in "~/.emacs.d/init.el"
+#+BEGIN_SRC emacs-lisp
+  (use-package dbc-mode)
+#+END_SRC
+
+** Install dependency "pcre2el"
+use the command *package-install* to install "pcre2el"
