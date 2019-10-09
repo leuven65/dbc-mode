@@ -106,7 +106,7 @@
     ;; speical char
     ("[:@|;]" . 'font-lock-builtin-face)
     ;; number decimal
-    ("\\<-?[0-9.]+\\>" . 'font-lock-constant-face)
+    (,(rxt-pcre-to-elisp "[+-]?\\b[.\\d]+([eE][+-]?\\d+)?") . 'font-lock-constant-face)
     )
   "Highlighting dbc mode"
   )
