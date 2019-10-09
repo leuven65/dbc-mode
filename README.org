@@ -14,3 +14,6 @@ Put the file to EMACS load path, and add following code in "~/.emacs.d/init.el"
 
 ** Install dependency "pcre2el"
 use the command *package-install* to install "pcre2el"
+
+* Snapshot
+[[./snapshot.png]]
