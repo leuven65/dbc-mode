@@ -93,7 +93,7 @@
 
 (defvar dbc-mode-font-lock
   `((,(regexp-opt dbc-mode-keywords 'words) . 'font-lock-keyword-face)
-    ;; message id and name
+    ;; message name
     (,(rxt-pcre-to-elisp "^\\s+BO_\\s+\\d+\\s+(\\w+)")
      (1 font-lock-function-name-face))
     ;; signal name
@@ -105,7 +105,7 @@
     (,(regexp-opt dbc-mode-constant 'words) . 'font-lock-constant-face)
     ;; speical char
     ("[:@|;]" . 'font-lock-builtin-face)
-    ;; number decimal
+    ;; numbers
     (,(rxt-pcre-to-elisp "[+-]?\\b[.\\d]+([eE][+-]?\\d+)?") . 'font-lock-constant-face)
     )
   "Highlighting dbc mode"
@@ -120,27 +120,29 @@
     table)
   "Syntax table for `dbc-mode'.")
 
+;;;###autoload
 (define-derived-mode dbc-mode fundamental-mode "dbc"
   "Major mode for highlighting CAN dbc files."
 
   :syntax-table dbc-mode-syntax-table
 
   ;; Setup font-lock mode.
-  (set (make-local-variable 'font-lock-defaults)
-       '(dbc-mode-font-lock))
+  (setq-local font-lock-defaults
+              '(dbc-mode-font-lock))
+
   ;; Setup indentation function.
   ;; (set (make-local-variable 'indent-line-function)
   ;;      'dbc-mode-indent)
   ;; Setup comment syntax.
-  (set (make-local-variable 'comment-start) "//")
-  (set (make-local-variable 'comment-end) "")
+  (setq-local comment-start "//")
+  (setq-local comment-end "")
 
-  (set (make-local-variable 'comment-auto-fill-only-comments) t)
+  (setq-local comment-auto-fill-only-comments t)
   
   ;; Setup imenu
-  (set (make-local-variable 'imenu-generic-expression)
-       `(("Messages" ,(rxt-pcre-to-elisp "^\\s*BO_\\s+(\\w+)") 1)
-         ("Signals" ,(rxt-pcre-to-elisp "^\\s*SG_\\s+(\\w+)") 1)))
+  (setq-local imenu-generic-expression
+              `(("Messages" ,(rxt-pcre-to-elisp "^\\s*BO_\\s+(\\w+)") 1)
+                ("Signals" ,(rxt-pcre-to-elisp "^\\s*SG_\\s+(\\w+)") 1)))
   )
 
 ;;;###autoload
