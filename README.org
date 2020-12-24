@@ -6,6 +6,11 @@
 * About
 *dbc-mode* is EMACS major mode for highlighting CAN dbc file.
 
+Originally I tried to use [[https://github.com/alexmurray/dbc-mode]], but it doesn't work on Emacs26/27.
+As implementing a Emacs mode for highlighting is simple, so that I directly implement this simple
+version of "dbc-mode" by myself. Next I will try to add more features to it, such as hide-show
+block, flycheck by using the python package (such as, [[cantools][https://github.com/eerimoq/cantools]]), etc.
+
 * Installation
 Put the file to EMACS load path, and add following code in "~/.emacs.d/init.el"
 #+BEGIN_SRC emacs-lisp
