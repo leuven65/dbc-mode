@@ -121,10 +121,8 @@
   "Syntax table for `dbc-mode'.")
 
 ;;;###autoload
-(define-derived-mode dbc-mode fundamental-mode "dbc"
+(define-derived-mode dbc-mode prog-mode "dbc"
   "Major mode for highlighting CAN dbc files."
-
-  :syntax-table dbc-mode-syntax-table
 
   ;; Setup font-lock mode.
   (setq-local font-lock-defaults
@@ -135,13 +133,12 @@
   ;;      'dbc-mode-indent)
   ;; Setup comment syntax.
   (setq-local comment-start "//")
-  (setq-local comment-end "")
+  (setq-local comment-start-skip "//+\\s-*")
 
   (setq-local comment-auto-fill-only-comments t)
-  
-  ;; Setup imenu
+
   (setq-local imenu-generic-expression
-              `(("Messages" ,(rxt-pcre-to-elisp "^\\s*BO_\\s+(\\w+)") 1)
+              `(("Messages" ,(rxt-pcre-to-elisp "^\\s*BO_\\s+\\d+\\s+(\\w+)") 1)
                 ("Signals" ,(rxt-pcre-to-elisp "^\\s*SG_\\s+(\\w+)") 1)))
   )
 
